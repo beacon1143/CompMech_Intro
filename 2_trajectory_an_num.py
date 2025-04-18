@@ -30,7 +30,7 @@ traject_num = ax.plot(x[0], y_num[0], lw=3)[0]
 
 def init_anim():
     traject_an.set_data(x, y_an)
-    traject_num.set_data(x[0], y_num[0])
+    traject_num.set_data(x[:1], y_num[:1])
     return (traject_an, traject_num)
 
 def loop_anim(i):
