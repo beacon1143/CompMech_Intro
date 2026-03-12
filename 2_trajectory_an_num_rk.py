@@ -35,7 +35,11 @@ def init_anim():
 
 def loop_anim(i):
     global vy
-    y_num[i + 1] = y_num[i] + vy * dt
+    k1 = vy
+    k2 = vy - 0.5 * g * dt
+    k3 = vy - 0.5 * g * dt
+    k4 = vy - g * dt
+    y_num[i + 1] = y_num[i] + (k1 + 2.0 * (k2 + k3) + k4) * dt / 6.0
     vy = vy - g * dt
     traject_num.set_data(x[:i+2], y_num[:i+2])
     return (traject_an, traject_num)
